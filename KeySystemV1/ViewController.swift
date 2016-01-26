@@ -30,19 +30,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   //MARK: Actions
   @IBAction func Search(sender: UIButton) {
-        let list = self.loadNetValue()
+     self.loadNetValue()
 //    let list =  self.loadBundleValue()
-
-    for i in list{
-        if doornumber == i.Door {
-            DoorLabel.text = "Floor:\(i.Floor!)  keyCode:\(i.keyCode!)  "
-        }
-        else {
-            DoorLabel.text = "Door Number not found"
-        
-    }
-        print("search has been run")
-    }
   }
   
   override func viewDidLoad() {
@@ -55,10 +44,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var list = [Model]()
     Alamofire.request(.GET, "http://localhost:8888/items/56a5a10a1cd92c194b9bcc94")
       .responseJSON { (response) -> Void in
-        if let JSON = response.result.value {
+        
+        let JSON = response.result.value
+        
+        if (JSON != nil) {
           print("hello")
-          print(JSON["keyinfo"]as! NSArray)
+          print(JSON!["keyinfo"]as! NSArray)
           list = self.toModel(JSON as! NSDictionary) as! [Model];
+          
+          print(list.count);
+          for i in list{
+            if self.doornumber == i.Door {
+              self.DoorLabel.text = "Floor:\(i.Floor!)  keyCode:\(i.keyCode!)  "
+            }
+            else {
+              self.DoorLabel.text = "Door Number not found"
+            }
+            print("search has been run")
+          }
+
+          
+          
         }
     }
     return list
@@ -86,6 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
       model.keyCode = i["KeyCode"] as? String
       list.append(model);
     }
+    
     return list
   }
 }
