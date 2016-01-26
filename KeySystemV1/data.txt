@@ -1,0 +1,42 @@
+{
+  "_id": "56a5a10a1cd92c194b9bcc94",
+  "keyinfo": [
+    {
+      "Door#": "008A",
+      "Floor": "Basement",
+      "KeyCode": "PLOR1"
+    },
+    {
+      "Door#": "008B",
+      "Floor": "Basement",
+      "KeyCode": "XOIU2"
+    },
+    {
+      "Door#": "008C",
+      "Floor": "Basement",
+      "KeyCode": "CEXO3"
+    },
+    {
+      "Door#": "101A",
+      "Floor": "1",
+      "KeyCode": "TYGD0"
+    },
+    {
+      "Door#": "102A",
+      "Floor": "1",
+      "KeyCode": "FLOA1"
+    },
+    {
+      "Door#": "102B",
+      "Floor": "1",
+      "KeyCode": "FLOA1"
+    },
+    {
+      "Door#": "102C",
+      "Floor": "1",
+      "KeyCode": "FLOA1"
+    }
+  ],
+  "updated_at": "2016-01-25T19:52:20.353Z"
+}
+
