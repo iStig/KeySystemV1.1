@@ -30,9 +30,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   //MARK: Actions
   @IBAction func Search(sender: UIButton) {
-    //    let list = self.loadNetValue()
-    let list =  self.loadBundleValue()
-    //let model:Model = list[0] as! Model
+        let list = self.loadNetValue()
+//    let list =  self.loadBundleValue()
+
     for i in list{
         if doornumber == i.Door {
             DoorLabel.text = "Floor:\(i.Floor!)  keyCode:\(i.keyCode!)  "
@@ -42,14 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
         print("search has been run")
-    //if doornumber == model.Door! {
-    //DoorLabel.text = "keyCode:\(model.keyCode!) Floor:\(model.Floor!) "
-    //}
-    //else {
-    //DoorLabel.text = "Door Number not found"
     }
-    
-    
   }
   
   override func viewDidLoad() {
@@ -93,7 +86,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
       model.keyCode = i["KeyCode"] as? String
       list.append(model);
     }
-    
     return list
   }
 }
